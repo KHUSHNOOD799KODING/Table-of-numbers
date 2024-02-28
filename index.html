@@ -23,7 +23,7 @@
             padding: 10px;
             opacity: 1;
             box-shadow: 0px 0px 25px rgb(68, 68, 68);
-            
+
         }
 
         .optionbox {
@@ -44,7 +44,7 @@
             max-width: 190px;
             font-weight: 500;
         }
-        
+
         #bx {
             display: inline-block;
             max-width: 95%;
@@ -54,7 +54,7 @@
             border: 2px solid blueviolet;
             background-color: rgba(0, 0, 0, 0.842);
             display: flex;
-          
+
             color: rgb(96, 255, 210);
             flex-wrap: wrap;
             justify-content: center;
@@ -123,6 +123,7 @@
             text-align: center;
             box-shadow: 0px 0px 25px rgb(68, 68, 68);
             width: 40%;
+            /* min-height: ; */
             margin: 80px auto;
             border: 2px solid black;
             padding: 10px 5px;
@@ -185,26 +186,45 @@
             .calculator {
                 width: 90%;
                 left: 5%;
+                position: fixed;
             }
+
         }
+
+        @media screen and (max-height: 400px) and (max-width: 890px) {
+
+            /* Your CSS rules for the specified width and height range */
+            .calculator {
+
+                position: absolute;
+            }
+
+        }
+
         @media (max-width:290px) {
-         .cld{
-            font-size: 17px;
-            padding: 5px ;
-         }
-         .calculator{
-            font-size: 16px;
-            padding: 5px;
-            top: 2%;
-         }
-         .calculator input[type=number]{
-            font-size: 16px;
-            padding: 5px;
-            /* top: 2%; */
-         }
+            .cld {
+                font-size: 17px;
+                padding: 5px;
+            }
+
+            .calculator {
+                font-size: 16px;
+                padding: 5px;
+                top: 2%;
+            }
+
+            .calculator input[type=number] {
+                font-size: 16px;
+                padding: 5px;
+                /* top: 2%; */
+            }
         }
 
         .ct {
+            position: fixed;
+            top: 5px;
+            left: 5px;
+            z-index: 100;
             margin: 10px auto;
             box-shadow: 0px 0px 15px rgb(75, 75, 75);
         }
@@ -250,7 +270,7 @@
         </div>
     </div>
 
-  
+
 
 </body>
 <script>
