@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document table 3</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            border-radius: 15px;
+        }
+
+        .table {
+            /* display: inline-block; */
+            text-align: center;
+            max-width: 80%;
+            min-height: 50%;
+            background-color: rgb(96, 255, 210);
+            /* max-height: 670px; */
+            margin: 50px auto;
+            border: 2px solid goldenrod;
+            padding: 10px;
+            opacity: 1;
+            box-shadow: 0px 0px 25px rgb(68, 68, 68);
+            
+        }
+
+        .optionbox {
+            border: 2px solid green;
+            padding: 15px 0px;
+            /* min-height: 45%; */
+            width: 95%;
+            margin: 10px auto;
+        }
+
+        .optionbox input {
+            padding: 5px;
+            margin: 15px 0px;
+            outline: none;
+            border: 2px solid black;
+            font-size: 20px;
+            text-align: center;
+            max-width: 190px;
+            font-weight: 500;
+        }
+        
+        #bx {
+            display: inline-block;
+            max-width: 95%;
+            min-height: 200px;
+            padding: 10px;
+            margin: 15px auto;
+            border: 2px solid blueviolet;
+            background-color: rgba(0, 0, 0, 0.842);
+            display: flex;
+          
+            color: rgb(96, 255, 210);
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+        }
+
+        #show,
+        #shw {
+            background-color: rgba(0, 0, 0, 0.842);
+            color: white;
+            width: 70%;
+            margin: 15px auto;
+            padding: 5px;
+        }
+
+        #box {
+            display: flex;
+
+            justify-content: center;
+            flex-wrap: wrap;
+            flex-direction: column;
+            border: 1px solid blue;
+            min-width: 90px;
+            margin: 4px;
+            padding: 4px;
+            max-width: 250px;
+        }
+
+        .cld {
+            padding: 10px 15px;
+            font-size: 20px;
+            text-align: center;
+            color: green;
+        }
+
+        button {
+            padding: 5px 15px;
+            font-weight: 500;
+            margin: 10px 20px;
+            font-size: 20px;
+            outline: none;
+            border: 2px solid rgb(169, 4, 211);
+            color: green;
+        }
+
+        #bbb {
+            font-size: 23px;
+            color: red;
+            padding: 10px;
+            width: 80%;
+            border: 2px solid red;
+            margin: 15px auto;
+        }
+
+        #bb {
+            font-size: 23px;
+            color: greenyellow;
+            padding: 15px;
+            width: 80%;
+            border: 2px solid green;
+            margin: 10px auto;
+        }
+
+        .calculator {
+            text-align: center;
+            box-shadow: 0px 0px 25px rgb(68, 68, 68);
+            width: 40%;
+            margin: 80px auto;
+            border: 2px solid black;
+            padding: 10px 5px;
+            display: none;
+            position: fixed;
+            top: 5%;
+            left: 30%;
+            z-index: 100;
+            background-color: rgba(0, 0, 0, 0.829);
+            color: white;
+            transition: all .5s;
+
+        }
+
+        .screen {
+            width: 100%;
+            min-height: 150px;
+            border: 2px solid green;
+            padding: 10px;
+            color: purple;
+            text-align: right;
+            font-size: 35px;
+            font-weight: 700;
+            margin: 10px auto;
+        }
+
+        .calculator input[type=number] {
+            padding: 10px;
+            text-align: center;
+            font-size: 20px;
+            margin: 5px auto;
+        }
+
+        .buttons {
+            width: 100%;
+            margin: 10px auto;
+            padding: 10px;
+        }
+
+        .buttons input {
+            padding: 5px;
+            font-size: 19px;
+            margin: 5px;
+            min-width: 80px;
+            color: blue;
+        }
+
+        @media (max-width:800px) {
+            .table {
+                margin: 50px auto;
+                max-width: 95%;
+                min-height: 340px;
+            }
+
+            #box {
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            .calculator {
+                width: 90%;
+                left: 5%;
+            }
+        }
+        @media (max-width:290px) {
+         .cld{
+            font-size: 17px;
+            padding: 5px ;
+         }
+         .calculator{
+            font-size: 16px;
+            padding: 5px;
+            top: 2%;
+         }
+         .calculator input[type=number]{
+            font-size: 16px;
+            padding: 5px;
+            /* top: 2%; */
+         }
+        }
+
+        .ct {
+            margin: 10px auto;
+            box-shadow: 0px 0px 15px rgb(75, 75, 75);
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="clctr()" class="ct" id="clct">
+        Calculator
+    </button>
+
+    <div class="table" id="tbl">
+        <h1 id="shw"> Table Finder </h1>
+        <div class="optionbox">
+            <input type="number" id="one" placeholder="enter for table">
+            <input type="number" id="two" placeholder=" range for table ">
+            <button onclick="action()">Get the Table</button>
+        </div>
+
+        <h2 id="show">The Table of till the range is below:</h2>
+
+        <input class="cld" type="text" id="colorInput" placeholder="enter color for theme">
+
+        <button onclick="changeBackgroundColor()">Change Table Theme</button>
+
+        <div class="box" id="bx">
+
+        </div>
+
+    </div>
+
+    <div class="calculator" id="calcu">
+        <h2>Calculator</h2>
+        <input class="screen" type="text" id="result" readonly>
+
+        <input type="number" id="num1" placeholder="Enter first number">
+        <input type="number" id="num2" placeholder="Enter second number">
+        <div class="buttons">
+            <input type="button" value="ADD" onclick="calculate('+')">
+            <input type="button" value="SUBTRACT" onclick="calculate('-')">
+            <input type="button" value="PRODUCT" onclick="calculate('*')">
+            <input type="button" value="DIVIDE" onclick="calculate('/')">
+        </div>
+    </div>
+
+  
+
+</body>
+<script>
+
+    function clctr() {
+
+        let tbl = document.getElementById("tbl");
+        let ct = document.getElementById("calcu");
+
+        if (ct.style.display != "block") {
+            ct.style.display = "block";
+        }
+        else {
+            ct.style.display = "none";
+        }
+
+        {
+
+            if (tbl.style.opacity != "0.8") {
+                tbl.style.opacity = "0.8";
+            }
+
+            else {
+                tbl.style.opacity = "1";
+            }
+        }
+
+
+    }
+
+
+
+    let bx = document.getElementById('bx');
+
+    function action() {
+
+        let number = document.getElementById('one').value;
+        let limit = document.getElementById('two').value;
+        let show = document.getElementById('show');
+        let TAB = document.getElementsByClassName('table');
+        let table = " ";
+
+
+
+        if (limit > 10000) {
+            table = (`<div id="bbb">!! YOU SHOULD NOT ENTER THE RANGE OF TABLE MORE THAN 10000, YOUR SYSTEM MAY GLITCH !!</div> ` + `<div id="bb">!! YOU CAN USE THE CALCULATOR BELOW TO FIND ANY SPECIFIC PRODUCT OF NUMBERS !!</div> `);
+
+        }
+
+        else {
+            show.innerHTML = ` The Table of ${number} till the limit ${limit} is below : `;
+
+            for (let i = 1; i <= limit; i++) {
+
+                table += (`<div id="box">${number} x ${i} = ${number * i}</div> `);
+            }
+
+        }
+
+
+        bx.innerHTML = table;
+
+    }
+
+    let tbl = document.getElementById("tbl");
+    let show = document.getElementById("show");
+    let shw = document.getElementById("shw");
+
+    function changeBackgroundColor() {
+
+        let colorvalue = document.getElementById("colorInput").value;
+
+        // buddy.style.backgroundColor = colorvalue;
+        bx.style.color = colorvalue;
+        tbl.style.backgroundColor = colorvalue;
+        show.style.color = colorvalue;
+        shw.style.color = colorvalue;
+        // sqr.style.color = colorvalue;
+
+    }
+
+
+    function calculate(operator) {
+        let num1 = parseFloat(document.getElementById('num1').value);
+        let num2 = parseFloat(document.getElementById('num2').value);
+        let result;
+
+        switch (operator) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                result = num1 / num2;
+                break;
+            default:
+                result = 'Invalid operator';
+        }
+
+        document.getElementById('result').value = result;
+    }
+
+
+</script>
+
+</html>
