@@ -189,6 +189,13 @@
                 position: fixed;
             }
 
+            #bx {
+                max-width: 98%;
+                padding: 5px;
+                font-size: 16px;
+                font-weight: lighter;
+            }
+
         }
 
         @media screen and (max-height: 400px) and (max-width: 890px) {
@@ -220,6 +227,8 @@
             }
         }
 
+
+
         .ct {
             position: fixed;
             top: 5px;
@@ -238,17 +247,21 @@
 
     <div class="table" id="tbl">
         <h1 id="shw"> Table Finder </h1>
-        <div class="optionbox">
-            <input type="number" id="one" placeholder="enter for table">
-            <input type="number" id="two" placeholder=" range for table ">
-            <button onclick="action()">Get the Table</button>
-        </div>
-
-        <h2 id="show">The Table of till the range is below:</h2>
 
         <input class="cld" type="text" id="colorInput" placeholder="enter color for theme">
 
         <button onclick="changeBackgroundColor()">Change Table Theme</button>
+
+        <div class="optionbox">
+
+            <input type="number" id="one" placeholder="enter for table">
+            <input type="number" id="two" placeholder=" range for table ">
+            <button onclick="action()">Get the Table</button>
+            
+        </div>
+
+
+        <h2 id="show">The Table of till the range is below:</h2>
 
         <div class="box" id="bx">
 
@@ -348,6 +361,7 @@
         tbl.style.backgroundColor = colorvalue;
         show.style.color = colorvalue;
         shw.style.color = colorvalue;
+        tbl.style.boxShadow = `0px 0px 30px ${colorvalue}`;
         // sqr.style.color = colorvalue;
 
     }
